@@ -63,12 +63,15 @@ namespace com.IvanMurzak.Unity.MCP.Cinemachine.Editor.Tests
             var reflector = UnityMcpPluginEditor.Instance.Reflector ?? throw new Exception("Reflector not available.");
 
             var newOffset = new Vector3(0, 5, -12);
+            // FollowOffset is a public *field* on CinemachineFollow, so it must be supplied
+            // through the 'fields' channel (AddField). ReflectorNet's TryModify resolves
+            // 'props' as PropertyInfo only and 'fields' as FieldInfo only — no cross-fallback.
             var diff = SerializedMember.FromValue(
                     reflector: reflector,
                     name: follow.GetType().Name,
                     type: typeof(CinemachineFollow),
                     value: null)
-                .AddProperty(SerializedMember.FromValue(
+                .AddField(SerializedMember.FromValue(
                     reflector: reflector,
                     name: nameof(follow.FollowOffset),
                     value: newOffset));
@@ -96,7 +99,7 @@ namespace com.IvanMurzak.Unity.MCP.Cinemachine.Editor.Tests
                 ""componentRef"": {{ ""instanceID"": {follow.GetInstanceID()} }},
                 ""data"": {{
                     ""typeName"": ""Unity.Cinemachine.CinemachineFollow"",
-                    ""props"": [
+                    ""fields"": [
                         {{
                             ""name"": ""FollowOffset"",
                             ""typeName"": ""UnityEngine.Vector3"",
