@@ -15,6 +15,7 @@ using com.IvanMurzak.McpPlugin;
 using com.IvanMurzak.ReflectorNet.Utils;
 using com.IvanMurzak.Unity.MCP.Editor.Utils;
 using AIGD;
+using com.IvanMurzak.Unity.MCP.Runtime.Extensions;
 using UnityEditor;
 using UnityEngine;
 using Unity.Cinemachine;

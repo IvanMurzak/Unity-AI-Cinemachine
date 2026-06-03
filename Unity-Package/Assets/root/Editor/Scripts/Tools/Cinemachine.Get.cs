@@ -12,6 +12,7 @@
 using System;
 using System.ComponentModel;
 using com.IvanMurzak.McpPlugin;
+using Microsoft.Extensions.Logging;
 using com.IvanMurzak.ReflectorNet.Model;
 using com.IvanMurzak.ReflectorNet.Utils;
 using AIGD;
@@ -95,9 +96,9 @@ namespace com.IvanMurzak.Unity.MCP.Editor.API
         /// Locate a Cinemachine component on the GameObject. When componentRef resolves, returns the matching
         /// component; otherwise returns the first component whose type lives in the Unity.Cinemachine namespace.
         /// </summary>
-        static (Component? component, int index) FindCinemachineComponent(GameObject go, ComponentRef? componentRef)
+        static (UnityEngine.Component? component, int index) FindCinemachineComponent(GameObject go, ComponentRef? componentRef)
         {
-            var all = go.GetComponents<Component>();
+            var all = go.GetComponents<UnityEngine.Component>();
             for (int i = 0; i < all.Length; i++)
             {
                 var comp = all[i];

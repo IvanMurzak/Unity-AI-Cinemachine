@@ -83,7 +83,7 @@ namespace com.IvanMurzak.Unity.MCP.Editor.API
                 {
                     gameObjectRef = new GameObjectRef(go),
                     cameraRef = new ComponentRef(cam),
-                    extensionRef = added is Component addedComponent ? new ComponentRef(addedComponent) : null,
+                    extensionRef = added is UnityEngine.Component addedComponent ? new ComponentRef(addedComponent) : null,
                     extensionTypeName = type.FullName ?? type.Name,
                     success = true
                 };

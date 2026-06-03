@@ -11,6 +11,7 @@
 #nullable enable
 using System;
 using AIGD;
+using com.IvanMurzak.Unity.MCP.Runtime.Extensions;
 using UnityEditor;
 using UnityEngine;
 using Unity.Cinemachine;

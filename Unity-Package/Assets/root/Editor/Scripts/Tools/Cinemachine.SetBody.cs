@@ -158,7 +158,7 @@ namespace com.IvanMurzak.Unity.MCP.Editor.API
             });
         }
 
-        static void RemoveComponents<T>(GameObject go) where T : Component
+        static void RemoveComponents<T>(GameObject go) where T : UnityEngine.Component
         {
             foreach (var c in go.GetComponents<T>())
                 if (c != null)
