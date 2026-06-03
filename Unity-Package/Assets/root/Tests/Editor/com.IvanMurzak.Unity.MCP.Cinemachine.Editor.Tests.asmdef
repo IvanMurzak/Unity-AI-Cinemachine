@@ -6,7 +6,10 @@
         "com.IvanMurzak.Unity.MCP.Runtime",
         "com.IvanMurzak.Unity.MCP.TestFiles",
         "com.IvanMurzak.Unity.MCP.Cinemachine.Runtime",
-        "com.IvanMurzak.Unity.MCP.Cinemachine.Editor"
+        "com.IvanMurzak.Unity.MCP.Cinemachine.Editor",
+        "Unity.Cinemachine",
+        "UnityEngine.TestRunner",
+        "UnityEditor.TestRunner"
     ],
     "includePlatforms": [
         "Editor"
@@ -23,7 +26,8 @@
         "ReflectorNet.dll",
         "McpPlugin.dll",
         "McpPlugin.Common.dll",
-        "R3.dll"
+        "R3.dll",
+        "nunit.framework.dll"
     ],
     "autoReferenced": false,
     "defineConstraints": [
