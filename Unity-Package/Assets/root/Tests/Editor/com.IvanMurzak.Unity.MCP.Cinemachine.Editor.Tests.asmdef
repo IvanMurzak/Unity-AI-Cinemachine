@@ -15,7 +15,6 @@
         "Editor"
     ],
     "excludePlatforms": [],
-    "optionalUnityReferences": ["TestAssemblies"],
     "allowUnsafeCode": false,
     "overrideReferences": true,
     "precompiledReferences": [
@@ -31,7 +30,8 @@
     ],
     "autoReferenced": false,
     "defineConstraints": [
-        "UNITY_INCLUDE_TESTS"
+        "UNITY_INCLUDE_TESTS",
+        "UNITY_MCP_READY"
     ],
     "versionDefines": [],
     "noEngineReferences": false
