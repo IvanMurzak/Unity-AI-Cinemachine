@@ -1,0 +1,196 @@
+[Licensing::Module] Trying to connect to existing licensing client channel...
+[Licensing::IpcConnector] Successfully connected to: "LicenseClient-IvanD" at "2026-06-03T22:17:04.9994792Z"
+[Licensing::Client] Code 10 while verifying Licensing Client signature (process Id: 60196, path: "C:/Program Files/Unity Hub/UnityLicensingClient_V1/Unity.Licensing.Client.exe")
+[Licensing::Module] LicensingClient has failed validation; ignoring
+[Licensing::Client] Handshaking with LicensingClient:
+  Version:                 1.17.4+4293ba1
+  Session Id:              9747bb2bcdc949dcac61b22a6231a1b8
+  Correlation Id:          8347bb66cf338153b48470d7a0b048c9
+  External correlation Id: 5740400675712454470
+  Machine Id:              emKBI1tNh308bzmFa1F3e6Fh+9k=
+[Licensing::Module] Successfully connected to LicensingClient on channel: "LicenseClient-IvanD" (connect: 0.00s, validation: 0.01s, handshake: 0.03s)
+[Licensing::IpcConnector] Successfully connected to: "LicenseClient-IvanD-notifications" at "2026-06-03T22:17:05.0466732Z"
+[Licensing::Module] Error: Access token is unavailable; failed to update
+[Licensing::Client] Successfully updated license
+Built from '2022.3/respin/2022.3.62f2-4af31df585-v2' branch; Version is '2022.3.62f3 (96770f904ca7) revision 9860879'; Using compiler version '192829333'; Build Type 'Release'
+OS: 'Windows 11  (10.0.26200) 64bit Professional' Language: 'en' Physical Memory: 62852 MB
+[Licensing::Client] Successfully resolved entitlement details
+[Licensing::Module] Serial number assigned to: "F4-96BV-SWED-2HRA-9Z38-XXXX"
+[Licensing::Module] Serial number assigned to: "1135749-UnityPersXXXX"
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 0
+[Licensing::Client] Successfully resolved entitlement details
+[Licensing::Module] Serial number assigned to: "F4-96BV-SWED-2HRA-9Z38-XXXX"
+[Licensing::Module] Serial number assigned to: "1135749-UnityPersXXXX"
+
+COMMAND LINE ARGUMENTS:
+C:\UnityEditor\2022.3.62f3\Editor\Unity.exe
+-batchmode
+-quit
+-nographics
+-disable-assembly-updater
+-projectPath
+C:/Projects/Unity-AI-Cinemachine/Unity-Package
+-logFile
+C:/Projects/Unity-AI-Cinemachine/compile-2022.log
+Successfully changed project path to: C:/Projects/Unity-AI-Cinemachine/Unity-Package
+C:/Projects/Unity-AI-Cinemachine/Unity-Package
+[UnityMemory] Configuration Parameters - Can be set up in boot.config
+    "memorysetup-bucket-allocator-granularity=16"
+    "memorysetup-bucket-allocator-bucket-count=8"
+    "memorysetup-bucket-allocator-block-size=33554432"
+    "memorysetup-bucket-allocator-block-count=8"
+    "memorysetup-main-allocator-block-size=16777216"
+    "memorysetup-thread-allocator-block-size=16777216"
+    "memorysetup-gfx-main-allocator-block-size=16777216"
+    "memorysetup-gfx-thread-allocator-block-size=16777216"
+    "memorysetup-cache-allocator-block-size=4194304"
+    "memorysetup-typetree-allocator-block-size=2097152"
+    "memorysetup-profiler-bucket-allocator-granularity=16"
+    "memorysetup-profiler-bucket-allocator-bucket-count=8"
+    "memorysetup-profiler-bucket-allocator-block-size=33554432"
+    "memorysetup-profiler-bucket-allocator-block-count=8"
+    "memorysetup-profiler-allocator-block-size=16777216"
+    "memorysetup-profiler-editor-allocator-block-size=1048576"
+    "memorysetup-temp-allocator-size-main=16777216"
+    "memorysetup-job-temp-allocator-block-size=2097152"
+    "memorysetup-job-temp-allocator-block-size-background=1048576"
+    "memorysetup-job-temp-allocator-reduction-small-platforms=262144"
+    "memorysetup-allocator-temp-initial-block-size-main=262144"
+    "memorysetup-allocator-temp-initial-block-size-worker=262144"
+    "memorysetup-temp-allocator-size-background-worker=32768"
+    "memorysetup-temp-allocator-size-job-worker=262144"
+    "memorysetup-temp-allocator-size-preload-manager=33554432"
+    "memorysetup-temp-allocator-size-nav-mesh-worker=65536"
+    "memorysetup-temp-allocator-size-audio-worker=65536"
+    "memorysetup-temp-allocator-size-cloud-worker=32768"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gfx=262144"
+Player connection [63240]  Target information:
+
+Player connection [63240]  * "[IP] 10.0.0.58 [Port] 55504 [Flags] 2 [Guid] 3138207095 [EditorId] 3138207095 [Version] 1048832 [Id] WindowsEditor(7,IvanPC) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
+
+Player connection [63240]  * "[IP] 172.29.80.1 [Port] 55504 [Flags] 2 [Guid] 3138207095 [EditorId] 3138207095 [Version] 1048832 [Id] WindowsEditor(7,IvanPC) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
+
+Player connection [63240]  * "[IP] 172.25.208.1 [Port] 55504 [Flags] 2 [Guid] 3138207095 [EditorId] 3138207095 [Version] 1048832 [Id] WindowsEditor(7,IvanPC) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
+
+Player connection [63240] Host joined multi-casting on [225.0.0.222:54997]...
+Player connection [63240] Host joined alternative multi-casting on [225.0.0.222:34997]...
+Input System module state changed to: Initialized.
+[PhysX] Initialized MultithreadedTaskDispatcher with 32 workers.
+[Package Manager] UpmClient::Connect -- Connected to IPC stream "Upm-76480" after 0.3 seconds.
+Rebuilding Library because the asset database could not be found!
+[Package Manager] Done resolving packages in 10.61 seconds
+[Licensing::Client] Successfully resolved entitlement details
+[Package Manager] Lock file was created
+[Package Manager] Registered 21 packages:
+  Packages from [https://package.openupm.com]:
+    com.ivanmurzak.unity.mcp@0.77.1 (location: C:\Projects\Unity-AI-Cinemachine\Unity-Package\Library\PackageCache\com.ivanmurzak.unity.mcp@0.77.1)
+    extensions.unity.playerprefsex@2.1.5 (location: C:\Projects\Unity-AI-Cinemachine\Unity-Package\Library\PackageCache\extensions.unity.playerprefsex@2.1.5)
+  Packages from [https://packages.unity.com]:
+    com.unity.test-framework@1.1.33 (location: C:\Projects\Unity-AI-Cinemachine\Unity-Package\Library\PackageCache\com.unity.test-framework@1.1.33)
+    com.unity.cinemachine@3.1.6 (location: C:\Projects\Unity-AI-Cinemachine\Unity-Package\Library\PackageCache\com.unity.cinemachine@3.1.6)
+    com.unity.splines@2.8.0 (location: C:\Projects\Unity-AI-Cinemachine\Unity-Package\Library\PackageCache\com.unity.splines@2.8.0)
+    com.unity.ext.nunit@1.0.6 (location: C:\Projects\Unity-AI-Cinemachine\Unity-Package\Library\PackageCache\com.unity.ext.nunit@1.0.6)
+    com.unity.mathematics@1.2.6 (location: C:\Projects\Unity-AI-Cinemachine\Unity-Package\Library\PackageCache\com.unity.mathematics@1.2.6)
+    com.unity.settings-manager@2.1.0 (location: C:\Projects\Unity-AI-Cinemachine\Unity-Package\Library\PackageCache\com.unity.settings-manager@2.1.0)
+  Built-in packages:
+    com.unity.modules.assetbundle@1.0.0 (location: C:\Projects\Unity-AI-Cinemachine\Unity-Package\Library\PackageCache\com.unity.modules.assetbundle@1.0.0)
+    com.unity.modules.imageconversion@1.0.0 (location: C:\Projects\Unity-AI-Cinemachine\Unity-Package\Library\PackageCache\com.unity.modules.imageconversion@1.0.0)
+    com.unity.modules.imgui@1.0.0 (location: C:\Projects\Unity-AI-Cinemachine\Unity-Package\Library\PackageCache\com.unity.modules.imgui@1.0.0)
+    com.unity.modules.jsonserialize@1.0.0 (location: C:\Projects\Unity-AI-Cinemachine\Unity-Package\Library\PackageCache\com.unity.modules.jsonserialize@1.0.0)
+    com.unity.modules.ui@1.0.0 (location: C:\Projects\Unity-AI-Cinemachine\Unity-Package\Library\PackageCache\com.unity.modules.ui@1.0.0)
+    com.unity.modules.uielements@1.0.0 (location: C:\Projects\Unity-AI-Cinemachine\Unity-Package\Library\PackageCache\com.unity.modules.uielements@1.0.0)
+    com.unity.modules.unityanalytics@1.0.0 (location: C:\Projects\Unity-AI-Cinemachine\Unity-Package\Library\PackageCache\com.unity.modules.unityanalytics@1.0.0)
+    com.unity.modules.unitywebrequest@1.0.0 (location: C:\Projects\Unity-AI-Cinemachine\Unity-Package\Library\PackageCache\com.unity.modules.unitywebrequest@1.0.0)
+    com.unity.modules.unitywebrequestassetbundle@1.0.0 (location: C:\Projects\Unity-AI-Cinemachine\Unity-Package\Library\PackageCache\com.unity.modules.unitywebrequestassetbundle@1.0.0)
+    com.unity.modules.unitywebrequestaudio@1.0.0 (location: C:\Projects\Unity-AI-Cinemachine\Unity-Package\Library\PackageCache\com.unity.modules.unitywebrequestaudio@1.0.0)
+    com.unity.modules.unitywebrequesttexture@1.0.0 (location: C:\Projects\Unity-AI-Cinemachine\Unity-Package\Library\PackageCache\com.unity.modules.unitywebrequesttexture@1.0.0)
+    com.unity.modules.unitywebrequestwww@1.0.0 (location: C:\Projects\Unity-AI-Cinemachine\Unity-Package\Library\PackageCache\com.unity.modules.unitywebrequestwww@1.0.0)
+    com.unity.modules.audio@1.0.0 (location: C:\Projects\Unity-AI-Cinemachine\Unity-Package\Library\PackageCache\com.unity.modules.audio@1.0.0)
+[Subsystems] No new subsystems found in resolved package list.
+Package Manager log level set to [2]
+[Package Manager] Done registering packages in 0.09 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 2022.3.62f3 (96770f904ca7)
+[Subsystems] Discovering subsystems at path C:/UnityEditor/2022.3.62f3/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path C:/Projects/Unity-AI-Cinemachine/Unity-Package/Assets
+Forcing GfxDevice: Null
+GfxDevice: creating device client; threaded=0; jobified=0
+NullGfxDevice:
+    Version:  NULL 1.0 [1.0]
+    Renderer: Null Device
+    Vendor:   Unity Technologies
+[Licensing::Client] Successfully resolved entitlement details
+[Licensing::Module] Serial number assigned to: "F4-96BV-SWED-2HRA-9Z38-XXXX"
+[Licensing::Module] Serial number assigned to: "1135749-UnityPersXXXX"
+Initialize mono
+Mono path[0] = 'C:/UnityEditor/2022.3.62f3/Editor/Data/Managed'
+Mono path[1] = 'C:/UnityEditor/2022.3.62f3/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
+Mono config path = 'C:/UnityEditor/2022.3.62f3/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56480
+Using cacheserver namespaces - metadata:defaultmetadata, artifacts:defaultartifacts
+Using cacheserver namespaces - metadata:defaultmetadata, artifacts:defaultartifacts
+ImportWorker Server TCP listen port: 0
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+[Licensing::Client] Successfully resolved entitlement details
+[Licensing::Module] Serial number assigned to: "F4-96BV-SWED-2HRA-9Z38-XXXX"
+[Licensing::Module] Serial number assigned to: "1135749-UnityPersXXXX"
+Register platform support module: C:/UnityEditor/2022.3.62f3/Editor/Data/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll
+Register platform support module: C:/UnityEditor/2022.3.62f3/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.276304 seconds.
+- Loaded All Assemblies, in  5.678 seconds
+Native extension for WindowsStandalone target not found
+Native extension for Android target not found
+Android Extension - Scanning For ADB Devices 2327 ms
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  2.622 seconds
+Domain Reload Profiling: 8300ms
+	BeginReloadAssembly (3879ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (0ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (1ms)
+	RebuildCommonClasses (318ms)
+	RebuildNativeTypeToScriptingClass (6ms)
+	initialDomainReloadingComplete (306ms)
+	LoadAllAssembliesAndSetupDomain (1168ms)
+		LoadAssemblies (3884ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (1161ms)
+			TypeCache.Refresh (1159ms)
+				TypeCache.ScanAssembly (906ms)
+			ScanForSourceGeneratedMonoScriptInfo (0ms)
+			ResolveRequiredComponents (0ms)
+	FinalizeReload (2622ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (2594ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (2497ms)
+			SetLoadedEditorAssemblies (3ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (1ms)
+			ProcessInitializeOnLoadAttributes (67ms)
+			ProcessInitializeOnLoadMethodAttributes (26ms)
+			AfterProcessingInitializeOnLoad (0ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (0ms)
+[Licensing::Client] Successfully resolved entitlement details
+[Licensing::Module] Serial number assigned to: "F4-96BV-SWED-2HRA-9Z38-XXXX"
+[Licensing::Module] Serial number assigned to: "1135749-UnityPersXXXX"
+Application.AssetDatabase Initial Refresh Start
+Assembly has duplicate references: UnityEngine.TestRunner,UnityEditor.TestRunner (Assets/root/Tests/Editor/com.IvanMurzak.Unity.MCP.Cinemachine.Editor.Tests.asmdef)
+Assembly reference Packages/com.unity.cinemachine/Editor/Samples/ExposeHDRPInternals/HDRP-Editor-ref.asmref has no target assembly definition
+Assembly has duplicate references: UnityEngine.TestRunner,UnityEditor.TestRunner (Assets/root/Tests/Editor/com.IvanMurzak.Unity.MCP.Cinemachine.Editor.Tests.asmdef)
+Assembly reference Packages/com.unity.cinemachine/Editor/Samples/ExposeHDRPInternals/HDRP-Editor-ref.asmref has no target assembly definition
+[Assembly Updater] warning: Ignoring assembly Packages/com.unity.ext.nunit/net35/unity-custom/nunit.framework.dll as requested by command line parameter.
+Assembly Updater Post Process Assets time: 0.000091s
+[ScriptCompilation] Requested script compilation because: Assembly Definition File(s) changed
+[ScriptCompilation] Requested script compilation because: Assetdatabase observed changes in script compilation related files
+AssetDatabase: script compilation time: 0.040546s
+Scripts have compiler errors.
+Exiting without the bug reporter. Application will terminate with return code 1
