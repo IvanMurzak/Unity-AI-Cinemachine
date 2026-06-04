@@ -13,6 +13,8 @@
 
 </div>
 
+<img width="100%" alt="Cinemachine" src="https://github.com/IvanMurzak/Unity-AI-Cinemachine/raw/main/docs/promo/promo-cinemachine.gif"/>
+
 AI-powered tools for the Unity [Cinemachine](https://docs.unity3d.com/Packages/com.unity.cinemachine@3.1) workflow. Create and configure virtual cameras, set Follow / Look At targets, build the camera pipeline (Body / Aim / Noise / Lens), tune priorities and default blends, and modify any Cinemachine component field directly through natural language commands — no manual inspector navigation. Wraps `com.unity.cinemachine` **3.1.6**. Ideal for rapid camera blocking, cutscene setup, and procedural camera rigs. Built on top of the [AI Game Developer](https://github.com/IvanMurzak/Unity-MCP) platform.
 
 ### How to use
