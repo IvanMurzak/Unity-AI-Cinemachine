@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<test-run id="2" testcasecount="2" result="Passed" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-06-04 00:57:23Z" end-time="2026-06-04 00:57:23Z" duration="0.0212563">
+  <test-suite type="TestSuite" id="1000" name="2023.2.22f1" fullname="2023.2.22f1" runstate="Runnable" testcasecount="2" result="Passed" start-time="2026-06-04 00:57:23Z" end-time="2026-06-04 00:57:23Z" duration="0.021256" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0">
+    <properties>
+      <property name="platform" value="EditMode" />
+    </properties>
+    <test-suite type="Assembly" id="1004" name="EditorTests.dll" fullname="C:/Projects/Unity-AI-Cinemachine/Unity-Tests/2023.2.22f1/Library/ScriptAssemblies/EditorTests.dll" runstate="Runnable" testcasecount="2" result="Passed" start-time="2026-06-04 00:57:23Z" end-time="2026-06-04 00:57:23Z" duration="0.017053" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <properties>
+        <property name="_PID" value="18864" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="EditMode" />
+      </properties>
+      <test-suite type="TestFixture" id="1001" name="NewTestScript" fullname="NewTestScript" classname="NewTestScript" runstate="Runnable" testcasecount="2" result="Passed" start-time="2026-06-04 00:57:23Z" end-time="2026-06-04 00:57:23Z" duration="0.016234" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties>
+          <property name="platform" value="EditMode" />
+        </properties>
+        <test-case id="1002" name="NewTestScriptSimplePasses" fullname="NewTestScript.NewTestScriptSimplePasses" methodname="NewTestScriptSimplePasses" classname="NewTestScript" runstate="Runnable" seed="2105098172" result="Passed" start-time="2026-06-04 00:57:23Z" end-time="2026-06-04 00:57:23Z" duration="0.005025" asserts="0">
+          <properties>
+            <property name="platform" value="EditMode" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1003" name="NewTestScriptWithEnumeratorPasses" fullname="NewTestScript.NewTestScriptWithEnumeratorPasses" methodname="NewTestScriptWithEnumeratorPasses" classname="NewTestScript" runstate="Runnable" seed="606532568" result="Passed" start-time="2026-06-04 00:57:23Z" end-time="2026-06-04 00:57:23Z" duration="0.002591" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="platform" value="EditMode" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+          <output><![CDATA[Saving results to: C:/Projects/Unity-AI-Cinemachine/Unity-Tests/2023.2.22f1/r.xml
+]]></output>
+        </test-case>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>

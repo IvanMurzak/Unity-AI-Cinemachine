@@ -67,5 +67,3 @@ UserSettings/
 
 # Claude
 .claude/
-# MCP NuGet resolver output (regenerated per-environment, not shipped)
-/[Aa]ssets/[Pp]lugins/NuGet/
