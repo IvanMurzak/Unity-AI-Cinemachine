@@ -39,21 +39,25 @@ namespace com.IvanMurzak.Unity.MCP.Editor.API
             "value, a reference, and whether the camera is currently live (driving the view through an active " +
             "`CinemachineBrain`).\n\n" +
             "## Inputs\n\n" +
-            "_(none)_\n\n" +
+            "- `includeInactive` (bool, default true) — include inactive/disabled CinemachineCameras.\n\n" +
             "## Behavior\n\n" +
             "Finds all `CinemachineCamera` instances (including inactive ones), reads each `Priority.Value`, and " +
             "compares against `CinemachineBrain.ActiveVirtualCamera` across all active brains to compute `isLive`. " +
             "Read-only. The whole call runs on the Unity main thread.")]
         [Description("Lists all CinemachineCameras in the active scene with name, priority and isLive. Read-only.")]
-        public CameraListResponse ListCameras()
+        public CameraListResponse ListCameras
+        (
+            [Description("If true (default), include inactive/disabled CinemachineCameras; if false, only those on active GameObjects.")]
+            bool includeInactive = true
+        )
         {
             return MainThread.Instance.Run(() =>
             {
 #if UNITY_2023_1_OR_NEWER
                 var cameras = UnityEngine.Object.FindObjectsByType<CinemachineCamera>(
-                    FindObjectsInactive.Include, FindObjectsSortMode.None);
+                    includeInactive ? FindObjectsInactive.Include : FindObjectsInactive.Exclude, FindObjectsSortMode.None);
 #else
-                var cameras = UnityEngine.Object.FindObjectsOfType<CinemachineCamera>(includeInactive: true);
+                var cameras = UnityEngine.Object.FindObjectsOfType<CinemachineCamera>(includeInactive);
 #endif
 
                 // Collect the set of live virtual cameras across all active brains.
