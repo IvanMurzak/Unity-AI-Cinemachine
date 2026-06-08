@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "com.ivanmurzak.unity.mcp.cinemachine": "file:./../../../Unity-Package/Assets/root",
+    "com.ivanmurzak.unity.mcp.cinemachine": "file:./../../../Unity-Package/Packages/com.ivanmurzak.unity.mcp.cinemachine",
     "com.unity.cinemachine": "3.1.6",
     "com.unity.feature.development": "1.0.1",
     "com.unity.test-framework": "1.1.33",
@@ -41,8 +41,7 @@
       "url": "https://package.openupm.com",
       "scopes": [
         "com.ivanmurzak",
-        "extensions.unity",
-        "org.nuget"
+        "extensions.unity"
       ]
     }
   ],
