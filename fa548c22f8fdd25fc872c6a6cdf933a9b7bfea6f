@@ -1,0 +1,20 @@
+Unity-Package/Packages/packages-lock.json
+  s_0573cca7cfbbf7::t_ccfafa789161e2 5,35,67,78
+  s_0573cca7cfbbf7::t_d80368a36bbb22 25,42,49,56
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.6",
+  "base_commit_sha": "fa548c22f8fdd25fc872c6a6cdf933a9b7bfea6f",
+  "prompts": {},
+  "sessions": {
+    "s_0573cca7cfbbf7": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "49fea8c1-0c0d-4b22-a6e1-4bf89cc1c04c",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "Ivan Murzak <Ivan.D.Murzak@gmail.com>"
+    }
+  }
+}
