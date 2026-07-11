@@ -1,0 +1,23 @@
+"Installer/Assets/com.IvanMurzak/AI Cinemachine Installer/Installer.cs"
+  s_cb41aadbde3305::t_b1bd45aead3365 22
+Unity-Package/Packages/com.ivanmurzak.unity.mcp.cinemachine/package.json
+  s_cb41aadbde3305::t_0df25e57789a8d 16,20
+Unity-Package/Packages/packages-lock.json
+  s_cb41aadbde3305::t_f9ae84dace5c20 4
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.12",
+  "base_commit_sha": "dd0805eb793e405939890ac4e148b90f49348b60",
+  "prompts": {},
+  "sessions": {
+    "s_cb41aadbde3305": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "e52f295f-a887-4d28-a18e-567076052857",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "Ivan Murzak <Ivan.D.Murzak@gmail.com>"
+    }
+  }
+}
