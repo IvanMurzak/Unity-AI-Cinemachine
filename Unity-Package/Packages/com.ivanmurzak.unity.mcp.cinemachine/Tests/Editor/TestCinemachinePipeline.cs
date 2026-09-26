@@ -165,7 +165,7 @@ namespace com.IvanMurzak.Unity.MCP.Cinemachine.Editor.Tests
             var go = CreateGameObjectWithCinemachineCamera(GO_CameraName);
 
             var json = $@"{{
-                ""gameObjectRef"": {{ ""instanceID"": {go.GetEntityId()} }},
+                ""gameObjectRef"": {{ ""instanceID"": ""{UnityEngine.EntityId.ToULong(go.GetEntityId())}"" }},
                 ""bodyType"": ""Follow""
             }}";
 
