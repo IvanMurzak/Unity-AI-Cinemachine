@@ -9,7 +9,7 @@
 */
 
 #nullable enable
-#if UNITY_6000_5_OR_NEWER
+#if !UNITY_6000_5_OR_NEWER
 using System;
 using System.Collections;
 using com.IvanMurzak.ReflectorNet.Model;
@@ -32,8 +32,8 @@ namespace com.IvanMurzak.Unity.MCP.Cinemachine.Editor.Tests
 
             var tool = new Tool_Cinemachine();
             var result = tool.GetComponentData(
-                gameObjectRef: new GameObjectRef(go.GetEntityId()),
-                componentRef: new ComponentRef(cam.GetEntityId()));
+                gameObjectRef: new GameObjectRef(go.GetInstanceID()),
+                componentRef: new ComponentRef(cam.GetInstanceID()));
 
             Assert.IsNotNull(result, "Result should not be null");
             Assert.IsNotNull(result.data, "Serialized data should not be null");
@@ -48,7 +48,7 @@ namespace com.IvanMurzak.Unity.MCP.Cinemachine.Editor.Tests
             var go = CreateGameObjectWithCinemachineCamera(GO_CameraName);
 
             var tool = new Tool_Cinemachine();
-            var result = tool.GetComponentData(new GameObjectRef(go.GetEntityId()));
+            var result = tool.GetComponentData(new GameObjectRef(go.GetInstanceID()));
 
             Assert.IsNotNull(result.data, "Should serialize the first Cinemachine component");
             StringAssert.Contains("Cinemachine", result.componentType, "Resolved component should be a Cinemachine type");
@@ -79,9 +79,9 @@ namespace com.IvanMurzak.Unity.MCP.Cinemachine.Editor.Tests
 
             var tool = new Tool_Cinemachine();
             var result = tool.ModifyComponent(
-                gameObjectRef: new GameObjectRef(go.GetEntityId()),
+                gameObjectRef: new GameObjectRef(go.GetInstanceID()),
                 data: diff,
-                componentRef: new ComponentRef(follow.GetEntityId()));
+                componentRef: new ComponentRef(follow.GetInstanceID()));
 
             Assert.IsTrue(result.success, "Modification should succeed");
             Assert.AreEqual(newOffset, follow.FollowOffset, "FollowOffset should be modified");
@@ -96,8 +96,8 @@ namespace com.IvanMurzak.Unity.MCP.Cinemachine.Editor.Tests
             var follow = go.AddComponent<CinemachineFollow>();
 
             var json = $@"{{
-                ""gameObjectRef"": {{ ""instanceID"": {go.GetEntityId()} }},
-                ""componentRef"": {{ ""instanceID"": {follow.GetEntityId()} }},
+                ""gameObjectRef"": {{ ""instanceID"": {go.GetInstanceID()} }},
+                ""componentRef"": {{ ""instanceID"": {follow.GetInstanceID()} }},
                 ""data"": {{
                     ""typeName"": ""Unity.Cinemachine.CinemachineFollow"",
                     ""fields"": [
