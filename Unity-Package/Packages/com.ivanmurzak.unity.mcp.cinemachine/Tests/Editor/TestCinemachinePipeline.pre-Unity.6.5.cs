@@ -9,7 +9,7 @@
 */
 
 #nullable enable
-#if UNITY_6000_5_OR_NEWER
+#if !UNITY_6000_5_OR_NEWER
 using System.Collections;
 using AIGD;
 using com.IvanMurzak.Unity.MCP.Editor.API;
@@ -29,7 +29,7 @@ namespace com.IvanMurzak.Unity.MCP.Cinemachine.Editor.Tests
 
             var tool = new Tool_Cinemachine();
             var result = tool.SetBody(
-                gameObjectRef: new GameObjectRef(go.GetEntityId()),
+                gameObjectRef: new GameObjectRef(go.GetInstanceID()),
                 bodyType: Tool_Cinemachine.BodyType.Follow,
                 followOffset: new Vector3(0, 3, -8),
                 damping: 1.5f);
@@ -48,8 +48,8 @@ namespace com.IvanMurzak.Unity.MCP.Cinemachine.Editor.Tests
             var go = CreateGameObjectWithCinemachineCamera(GO_CameraName);
             var tool = new Tool_Cinemachine();
 
-            tool.SetBody(new GameObjectRef(go.GetEntityId()), Tool_Cinemachine.BodyType.Follow);
-            tool.SetBody(new GameObjectRef(go.GetEntityId()), Tool_Cinemachine.BodyType.ThirdPersonFollow, cameraDistance: 5f);
+            tool.SetBody(new GameObjectRef(go.GetInstanceID()), Tool_Cinemachine.BodyType.Follow);
+            tool.SetBody(new GameObjectRef(go.GetInstanceID()), Tool_Cinemachine.BodyType.ThirdPersonFollow, cameraDistance: 5f);
 
             Assert.IsNull(go.GetComponent<CinemachineFollow>(), "Previous Follow body should be removed");
             Assert.IsNotNull(go.GetComponent<CinemachineThirdPersonFollow>(), "ThirdPersonFollow should be attached");
@@ -63,8 +63,8 @@ namespace com.IvanMurzak.Unity.MCP.Cinemachine.Editor.Tests
             var go = CreateGameObjectWithCinemachineCamera(GO_CameraName);
             var tool = new Tool_Cinemachine();
 
-            tool.SetBody(new GameObjectRef(go.GetEntityId()), Tool_Cinemachine.BodyType.Follow);
-            tool.SetBody(new GameObjectRef(go.GetEntityId()), Tool_Cinemachine.BodyType.None);
+            tool.SetBody(new GameObjectRef(go.GetInstanceID()), Tool_Cinemachine.BodyType.Follow);
+            tool.SetBody(new GameObjectRef(go.GetInstanceID()), Tool_Cinemachine.BodyType.None);
 
             Assert.IsNull(go.GetComponent<CinemachineFollow>(), "Body should be removed");
 
@@ -78,7 +78,7 @@ namespace com.IvanMurzak.Unity.MCP.Cinemachine.Editor.Tests
 
             var tool = new Tool_Cinemachine();
             var result = tool.SetAim(
-                gameObjectRef: new GameObjectRef(go.GetEntityId()),
+                gameObjectRef: new GameObjectRef(go.GetInstanceID()),
                 aimType: Tool_Cinemachine.AimType.RotationComposer,
                 screenX: 0.1f,
                 screenY: -0.2f,
@@ -98,7 +98,7 @@ namespace com.IvanMurzak.Unity.MCP.Cinemachine.Editor.Tests
         {
             var go = CreateGameObjectWithCinemachineCamera(GO_CameraName);
             var tool = new Tool_Cinemachine();
-            tool.SetAim(new GameObjectRef(go.GetEntityId()), Tool_Cinemachine.AimType.HardLookAt);
+            tool.SetAim(new GameObjectRef(go.GetInstanceID()), Tool_Cinemachine.AimType.HardLookAt);
             Assert.IsNotNull(go.GetComponent<CinemachineHardLookAt>(), "HardLookAt should be attached");
             yield return null;
         }
@@ -110,7 +110,7 @@ namespace com.IvanMurzak.Unity.MCP.Cinemachine.Editor.Tests
 
             var tool = new Tool_Cinemachine();
             var result = tool.SetNoise(
-                gameObjectRef: new GameObjectRef(go.GetEntityId()),
+                gameObjectRef: new GameObjectRef(go.GetInstanceID()),
                 amplitudeGain: 2f,
                 frequencyGain: 3f);
 
@@ -130,7 +130,7 @@ namespace com.IvanMurzak.Unity.MCP.Cinemachine.Editor.Tests
 
             var tool = new Tool_Cinemachine();
             var result = tool.AddExtension(
-                gameObjectRef: new GameObjectRef(go.GetEntityId()),
+                gameObjectRef: new GameObjectRef(go.GetInstanceID()),
                 extensionTypeName: "CinemachineDeoccluder");
 
             Assert.IsTrue(result.success, "Should succeed");
@@ -149,7 +149,7 @@ namespace com.IvanMurzak.Unity.MCP.Cinemachine.Editor.Tests
             var result = tool.SetDefaultBlend(
                 style: CinemachineBlendDefinition.Styles.Linear,
                 time: 1.25f,
-                cameraRef: new GameObjectRef(go.GetEntityId()));
+                cameraRef: new GameObjectRef(go.GetInstanceID()));
 
             Assert.IsTrue(result.success, "Should succeed");
             var brain = go.GetComponent<CinemachineBrain>();
@@ -165,7 +165,7 @@ namespace com.IvanMurzak.Unity.MCP.Cinemachine.Editor.Tests
             var go = CreateGameObjectWithCinemachineCamera(GO_CameraName);
 
             var json = $@"{{
-                ""gameObjectRef"": {{ ""instanceID"": {go.GetEntityId()} }},
+                ""gameObjectRef"": {{ ""instanceID"": {go.GetInstanceID()} }},
                 ""bodyType"": ""Follow""
             }}";
 

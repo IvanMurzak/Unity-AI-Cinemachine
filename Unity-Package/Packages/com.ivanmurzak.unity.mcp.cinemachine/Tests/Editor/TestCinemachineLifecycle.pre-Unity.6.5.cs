@@ -9,7 +9,7 @@
 */
 
 #nullable enable
-#if UNITY_6000_5_OR_NEWER
+#if !UNITY_6000_5_OR_NEWER
 using System.Collections;
 using AIGD;
 using com.IvanMurzak.Unity.MCP.Editor.API;
@@ -55,8 +55,8 @@ namespace com.IvanMurzak.Unity.MCP.Cinemachine.Editor.Tests
             var tool = new Tool_Cinemachine();
             var result = tool.CreateCamera(
                 name: GO_CameraName,
-                followRef: new GameObjectRef(followGo.GetEntityId()),
-                lookAtRef: new GameObjectRef(lookAtGo.GetEntityId()));
+                followRef: new GameObjectRef(followGo.GetInstanceID()),
+                lookAtRef: new GameObjectRef(lookAtGo.GetInstanceID()));
 
             var go = GameObject.Find(GO_CameraName);
             var cam = go!.GetComponent<CinemachineCamera>();
@@ -75,7 +75,7 @@ namespace com.IvanMurzak.Unity.MCP.Cinemachine.Editor.Tests
             cam.Priority = new PrioritySettings { Value = 7 };
 
             var tool = new Tool_Cinemachine();
-            var result = tool.GetCamera(new GameObjectRef(go.GetEntityId()));
+            var result = tool.GetCamera(new GameObjectRef(go.GetInstanceID()));
 
             Assert.IsNotNull(result, "Result should not be null");
             Assert.AreEqual(7, result.priority, "Priority should be reported");
@@ -106,14 +106,14 @@ namespace com.IvanMurzak.Unity.MCP.Cinemachine.Editor.Tests
             var go = CreateGameObjectWithCamera(GO_BrainCameraName);
 
             var tool = new Tool_Cinemachine();
-            var result = tool.EnsureBrain(new GameObjectRef(go.GetEntityId()));
+            var result = tool.EnsureBrain(new GameObjectRef(go.GetInstanceID()));
 
             Assert.IsNotNull(result, "Result should not be null");
             Assert.IsTrue(result.created, "Brain should have been created");
             Assert.IsNotNull(go.GetComponent<CinemachineBrain>(), "Brain should be attached");
 
             // Idempotent: second call reuses the existing brain.
-            var result2 = tool.EnsureBrain(new GameObjectRef(go.GetEntityId()));
+            var result2 = tool.EnsureBrain(new GameObjectRef(go.GetInstanceID()));
             Assert.IsFalse(result2.created, "Second call should reuse the existing brain");
 
             yield return null;

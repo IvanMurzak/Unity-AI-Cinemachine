@@ -9,7 +9,7 @@
 */
 
 #nullable enable
-#if UNITY_6000_5_OR_NEWER
+#if !UNITY_6000_5_OR_NEWER
 using System.Collections;
 using AIGD;
 using com.IvanMurzak.Unity.MCP.Editor.API;
@@ -31,9 +31,9 @@ namespace com.IvanMurzak.Unity.MCP.Cinemachine.Editor.Tests
 
             var tool = new Tool_Cinemachine();
             var result = tool.SetTargets(
-                gameObjectRef: new GameObjectRef(go.GetEntityId()),
-                followRef: new GameObjectRef(followGo.GetEntityId()),
-                lookAtRef: new GameObjectRef(lookAtGo.GetEntityId()));
+                gameObjectRef: new GameObjectRef(go.GetInstanceID()),
+                followRef: new GameObjectRef(followGo.GetInstanceID()),
+                lookAtRef: new GameObjectRef(lookAtGo.GetInstanceID()));
 
             Assert.IsTrue(result.success, "Should succeed");
             var cam = go.GetComponent<CinemachineCamera>();
@@ -53,7 +53,7 @@ namespace com.IvanMurzak.Unity.MCP.Cinemachine.Editor.Tests
 
             var tool = new Tool_Cinemachine();
             tool.SetTargets(
-                gameObjectRef: new GameObjectRef(go.GetEntityId()),
+                gameObjectRef: new GameObjectRef(go.GetInstanceID()),
                 clearFollow: true);
 
             Assert.IsNull(cam.Follow, "Follow should be cleared");
@@ -67,7 +67,7 @@ namespace com.IvanMurzak.Unity.MCP.Cinemachine.Editor.Tests
             var go = CreateGameObjectWithCinemachineCamera(GO_CameraName);
 
             var tool = new Tool_Cinemachine();
-            var result = tool.SetPriority(new GameObjectRef(go.GetEntityId()), 99);
+            var result = tool.SetPriority(new GameObjectRef(go.GetInstanceID()), 99);
 
             Assert.IsTrue(result.success, "Should succeed");
             Assert.AreEqual(99, go.GetComponent<CinemachineCamera>().Priority.Value, "Priority should be applied");
@@ -82,7 +82,7 @@ namespace com.IvanMurzak.Unity.MCP.Cinemachine.Editor.Tests
 
             var tool = new Tool_Cinemachine();
             var result = tool.SetLens(
-                gameObjectRef: new GameObjectRef(go.GetEntityId()),
+                gameObjectRef: new GameObjectRef(go.GetInstanceID()),
                 fieldOfView: 75f,
                 nearClipPlane: 0.05f,
                 farClipPlane: 500f,
@@ -104,7 +104,7 @@ namespace com.IvanMurzak.Unity.MCP.Cinemachine.Editor.Tests
             var go = CreateGameObjectWithCinemachineCamera(GO_CameraName);
 
             var json = $@"{{
-                ""gameObjectRef"": {{ ""instanceID"": {go.GetEntityId()} }},
+                ""gameObjectRef"": {{ ""instanceID"": {go.GetInstanceID()} }},
                 ""priority"": 33
             }}";
 
