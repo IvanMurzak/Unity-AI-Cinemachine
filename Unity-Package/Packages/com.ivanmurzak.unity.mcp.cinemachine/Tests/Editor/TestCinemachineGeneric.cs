@@ -96,8 +96,8 @@ namespace com.IvanMurzak.Unity.MCP.Cinemachine.Editor.Tests
             var follow = go.AddComponent<CinemachineFollow>();
 
             var json = $@"{{
-                ""gameObjectRef"": {{ ""instanceID"": {go.GetEntityId()} }},
-                ""componentRef"": {{ ""instanceID"": {follow.GetEntityId()} }},
+                ""gameObjectRef"": {{ ""instanceID"": ""{UnityEngine.EntityId.ToULong(go.GetEntityId())}"" }},
+                ""componentRef"": {{ ""instanceID"": ""{UnityEngine.EntityId.ToULong(follow.GetEntityId())}"" }},
                 ""data"": {{
                     ""typeName"": ""Unity.Cinemachine.CinemachineFollow"",
                     ""fields"": [
