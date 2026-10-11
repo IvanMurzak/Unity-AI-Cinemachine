@@ -45,14 +45,13 @@ maintainer-applied `ci-ok` label and abort if the PR touches `.github/workflows/
 
 - **Main thread only.** Every Unity API call inside a tool MUST be wrapped in
   `MainThread.Instance.Run(() => { ... })` — MCP calls arrive off the main thread; only argument validation
-  runs outside. ReflectorNet calls (`reflector.Serialize`, `TryModify`) touch Unity objects and must run
-  inside it too.
+  runs outside. So must ReflectorNet calls (`reflector.Serialize`, `TryModify`).
 - **Tool shape.** One `[AiToolType] partial class Tool_Cinemachine`, split one operation per file
   (`Cinemachine.CameraCreate.cs`, `Cinemachine.SetBody.cs`, `Cinemachine.Modify.cs`, …). Each tool method
-  carries `[AiTool(<id>, Title=…, …Hint=…)]`, `[AiSkillDescription]` / `[AiSkillBody]` (LLM-facing skill copy)
-  and `[Description]` (parameter/return docs); tool IDs are `public const string …ToolId = "cinemachine-…"`.
-  Shared helpers (`ResolveGameObject`, `ResolveCinemachineCamera`, `MarkDirtyAndRepaint`) live in
-  `Cinemachine.Helpers.cs`; error strings in `Tool_Cinemachine.Error` (`Cinemachine.cs`).
+  carries `[AiTool(<id>, Title=…, …Hint=…)]`, `[AiSkillDescription]` / `[AiSkillBody]` and `[Description]`
+  (all LLM-facing); tool IDs are `public const string …ToolId = "cinemachine-…"`. Shared helpers
+  (`ResolveGameObject`, `ResolveCinemachineCamera`, `MarkDirtyAndRepaint`) live in `Cinemachine.Helpers.cs`;
+  error strings in `Tool_Cinemachine.Error` (`Cinemachine.cs`).
 - **EntityId split.** Unity 6.5+ returns `UnityEngine.EntityId` from `GameObject.GetEntityId()`; pre-6.5
   returns `int` from `GetInstanceID()`. Files surfacing an instance ID ship as a `*.cs`
   (`#if UNITY_6000_5_OR_NEWER`) + `*.pre-Unity.6.5.cs` (`#if !UNITY_6000_5_OR_NEWER`) pair — e.g.
