@@ -1,0 +1,23 @@
+.github/workflows/test_unity_plugin.yml
+  s_096f53a9588bb5::t_be0bce76a51f40 22-44
+commands/check-versions.py
+  s_096f53a9588bb5::t_b85645e48fb50f 1-393
+commands/update-ai-game-developer.ps1
+  s_096f53a9588bb5::t_e40dd845e2be54 8,35,38-41
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.14",
+  "base_commit_sha": "45cbd5046417e0995e119877ad7c79302a1fd7bc",
+  "prompts": {},
+  "sessions": {
+    "s_096f53a9588bb5": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "s_096f53a9588bb5",
+        "model": "unknown"
+      },
+      "human_author": "Ivan Murzak <Ivan.D.Murzak@gmail.com>"
+    }
+  }
+}

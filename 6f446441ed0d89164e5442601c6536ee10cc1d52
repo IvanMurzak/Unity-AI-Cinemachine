@@ -1,0 +1,23 @@
+Unity-Package/Packages/com.ivanmurzak.unity.mcp.cinemachine/Tests/Editor/TestCinemachineConfig.cs
+  s_505eacd03f59a4::t_4af361a050a0cc 107
+Unity-Package/Packages/com.ivanmurzak.unity.mcp.cinemachine/Tests/Editor/TestCinemachineGeneric.cs
+  s_505eacd03f59a4::t_034039a8727110 99-100
+Unity-Package/Packages/com.ivanmurzak.unity.mcp.cinemachine/Tests/Editor/TestCinemachinePipeline.cs
+  s_505eacd03f59a4::t_727ea0c15495fb 168
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "6f446441ed0d89164e5442601c6536ee10cc1d52",
+  "prompts": {},
+  "sessions": {
+    "s_505eacd03f59a4": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "s_505eacd03f59a4",
+        "model": "unknown"
+      },
+      "human_author": "Ivan Murzak <Ivan.D.Murzak@gmail.com>"
+    }
+  }
+}
