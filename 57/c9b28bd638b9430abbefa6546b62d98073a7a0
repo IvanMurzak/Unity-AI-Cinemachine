@@ -1,0 +1,21 @@
+commands/check-versions.py
+  s_e19ebe83cb6110::t_0ba3cfdaabbe09 78,80,86
+commands/update-ai-game-developer.ps1
+  s_e19ebe83cb6110::t_69d10d525ea9a9 41-42
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "57c9b28bd638b9430abbefa6546b62d98073a7a0",
+  "prompts": {},
+  "sessions": {
+    "s_e19ebe83cb6110": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "514df444-7709-4c0d-be94-41a9023e64ee",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Ivan Murzak <Ivan.D.Murzak@gmail.com>"
+    }
+  }
+}
