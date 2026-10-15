@@ -1,19 +1,21 @@
 # AGENTS.md — Unity-AI-Cinemachine
 
-Unity package `com.ivanmurzak.unity.mcp.cinemachine` — wraps **Cinemachine** (`com.unity.cinemachine`) as
-`cinemachine-*` MCP tools: create cameras, set follow/look-at targets, configure pipeline components (body /
-aim / noise / lens), manage blends, and modify arbitrary Cinemachine component fields. An extension of
-[AI Game Developer](https://github.com/IvanMurzak/Unity-MCP) (`com.ivanmurzak.unity.mcp`), generated from
-`Unity-AI-Tools-Template`; the user-facing tool list is in `README.md`.
+Unity package `com.ivanmurzak.unity.mcp.cinemachine` — **Cinemachine** (`com.unity.cinemachine`) for AI agents. It ships
+no MCP tools: an RQL module for Unity-MCP's `rql-query` /
+`rql-mutate` (the `cinemachine` source with `CreateCamera` / `EnsureBrain`, CinemachineCamera `SetBody` / `SetAim` /
+`SetNoise` / `SetTargets`, pipeline members `body` / `aim` / `noise` / `extensions`, and a guide rendered into the
+`unity-rql` skill). An extension of [AI Game Developer](https://github.com/IvanMurzak/Unity-MCP)
+(`com.ivanmurzak.unity.mcp`), generated from `Unity-AI-Tools-Template`; the former tool → RQL table is in `README.md`.
 
 ## Layout
 
 - `Unity-Package/` — Unity project hosting the package; only `Packages/com.ivanmurzak.unity.mcp.cinemachine/`
   ships.
   - `package.json` — the version source of truth and the dependency pins.
-  - `Editor/Scripts/Tools/` — the MCP tools (`Tool_Cinemachine`); new tools go here.
+  - `Editor/Scripts/Rql/` — the RQL module (`CinemachineModule`), the `cinemachine` source (`CinemachineApi`), pipeline
+    helpers (`CinemachinePipeline`), one adapter per file.
   - `Runtime/` — runtime assembly (currently empty).
-  - `Tests/Editor/` (EditMode, `BaseTest` + one file per tool group) and `Tests/Runtime/` (PlayMode).
+  - `Tests/Editor/` (EditMode; `Rql/`: `CinemachineTestBase` + one file per adapter / source) and `Tests/Runtime/` (PlayMode).
 - `Unity-Tests/<unity-version>/` — one test project per supported Unity version, consuming the package via
   `file:`. A new version must also be added to `test_pull_request.yml` and `release.yml` (and
   `open-all-projects-*`).
@@ -43,22 +45,15 @@ maintainer-applied `ci-ok` label and abort if the PR touches `.github/workflows/
 
 ## Critical invariants
 
-- **Main thread only.** Every Unity API call inside a tool MUST be wrapped in
-  `MainThread.Instance.Run(() => { ... })` — MCP calls arrive off the main thread; only argument validation
-  runs outside. So must ReflectorNet calls (`reflector.Serialize`, `TryModify`).
-- **Tool shape.** One `[AiToolType] partial class Tool_Cinemachine`, split one operation per file
-  (`Cinemachine.CameraCreate.cs`, `Cinemachine.SetBody.cs`, `Cinemachine.Modify.cs`, …). Each tool method
-  carries `[AiTool(<id>, Title=…, …Hint=…)]`, `[AiSkillDescription]` / `[AiSkillBody]` and `[Description]`
-  (all LLM-facing); tool IDs are `public const string …ToolId = "cinemachine-…"`. Shared helpers
-  (`ResolveGameObject`, `ResolveCinemachineCamera`, `MarkDirtyAndRepaint`) live in `Cinemachine.Helpers.cs`;
-  error strings in `Tool_Cinemachine.Error` (`Cinemachine.cs`).
-- **EntityId split.** Unity 6.5+ returns `UnityEngine.EntityId` from `GameObject.GetEntityId()`; pre-6.5
-  returns `int` from `GetInstanceID()`. Files surfacing an instance ID ship as a `*.cs`
-  (`#if UNITY_6000_5_OR_NEWER`) + `*.pre-Unity.6.5.cs` (`#if !UNITY_6000_5_OR_NEWER`) pair — e.g.
-  `Cinemachine.CameraCreate.cs` / `Cinemachine.CameraCreate.pre-Unity.6.5.cs`. Keep both variants in sync.
-- **Generic modify via ReflectorNet.** `cinemachine-modify` applies a `SerializedMember` diff through
-  `reflector.TryModify(ref boxed, data, …)`. The `fields` channel resolves `FieldInfo` and `props` resolves
-  `PropertyInfo`, with **no cross-fallback**: a public field (e.g. `CinemachineFollow.FollowOffset`) MUST go
-  in `fields`, a property in `props` (otherwise: `Property '…' not found or not writable`). It mirrors the
-  base `gameobject-component-modify` tool.
+- **RQL surface.** Agents use Unity-MCP's `rql-query` / `rql-mutate`; per-camera operations are
+  adapter methods of CinemachineCamera, owner-less creation lives on the `cinemachine` source (`[RqlCallable]`), and every
+  example belongs in the module guide (`CinemachineModule.Guide`, rendered into the `unity-rql` skill;
+  `EveryGuideExampleRuns` executes it in order).
+- **Pipeline stages.** Body / Aim / Noise component types come from `[CameraPipeline(stage)]` via TypeCache, excluding
+  `[Obsolete]` CM2 components; `SetBody` / `SetAim` remove every other component of that stage. Components are added /
+  removed with `Undo.AddComponent` / `Undo.DestroyObjectImmediate` so one Ctrl+Z reverts a call.
+- **Unity fake null.** Never `??` / `?.` on `UnityEngine.Object` results (`GetComponent<T>() ?? throw` throws
+  MissingComponentException); compare with `== null`.
+- **Hidden internals.** Private `[SerializeField, HideInInspector]` bookkeeping (m_StreamingVersion, m_LegacyPriority,
+  m_NoiseOffsets) and runtime caches (*TargetAsGroup / *TargetAsVcam …) are hidden; CameraState members are explicit-only.
 - Every C# file starts with the copyright box header and `#nullable enable`.
