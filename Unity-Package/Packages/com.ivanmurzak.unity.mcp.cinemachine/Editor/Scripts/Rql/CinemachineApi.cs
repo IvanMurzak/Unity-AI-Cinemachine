@@ -106,7 +106,7 @@ namespace com.IvanMurzak.Unity.MCP.Editor.Rql.Cinemachine
         }
 
         private static List<T> Components<T>() where T : Component =>
-            RqlUnity.AllGameObjects().SelectMany(g => g.GetComponents<T>()).Where(c => c != null).ToList();
+            RqlUnity.RootGameObjects().SelectMany(root => root.GetComponentsInChildren<T>(true)).ToList();
 
         private static void MarkSceneDirty(GameObject go)
         {

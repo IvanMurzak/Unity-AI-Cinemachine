@@ -1,7 +1,7 @@
 # AGENTS.md — Unity-AI-Cinemachine
 
-Unity package `com.ivanmurzak.unity.mcp.cinemachine` — **Cinemachine** (`com.unity.cinemachine`) for AI agents. On
-branch `experiment/rql` (local experiment) it ships no MCP tools: an RQL module for Unity-MCP's `rql-query` /
+Unity package `com.ivanmurzak.unity.mcp.cinemachine` — **Cinemachine** (`com.unity.cinemachine`) for AI agents. It ships
+no MCP tools: an RQL module for Unity-MCP's `rql-query` /
 `rql-mutate` (the `cinemachine` source with `CreateCamera` / `EnsureBrain`, CinemachineCamera `SetBody` / `SetAim` /
 `SetNoise` / `SetTargets`, pipeline members `body` / `aim` / `noise` / `extensions`, and a guide rendered into the
 `unity-rql` skill). An extension of [AI Game Developer](https://github.com/IvanMurzak/Unity-MCP)
@@ -45,7 +45,7 @@ maintainer-applied `ci-ok` label and abort if the PR touches `.github/workflows/
 
 ## Critical invariants
 
-- **RQL surface (branch `experiment/rql`).** Agents use Unity-MCP's `rql-query` / `rql-mutate`; per-camera operations are
+- **RQL surface.** Agents use Unity-MCP's `rql-query` / `rql-mutate`; per-camera operations are
   adapter methods of CinemachineCamera, owner-less creation lives on the `cinemachine` source (`[RqlCallable]`), and every
   example belongs in the module guide (`CinemachineModule.Guide`, rendered into the `unity-rql` skill;
   `EveryGuideExampleRuns` executes it in order).

@@ -11,6 +11,7 @@
 #nullable enable
 using System.Linq;
 using System.Reflection;
+using com.IvanMurzak.Unity.MCP.Editor.Rql.Adapters;
 using Rql.Execution;
 using UnityEngine;
 
@@ -26,7 +27,7 @@ namespace com.IvanMurzak.Unity.MCP.Editor.Rql.Cinemachine
         public static MemberTable HideInternals(MemberTable table, params string[] names)
         {
             table.HideWhere(m => m.Member is FieldInfo f && f.IsPrivate && f.IsDefined(typeof(HideInInspector), true));
-            return table.Hide(names.Where(table.Contains).ToArray());
+            return table.HideExisting(names);
         }
 
         /// <summary>Make the given members explicit-only (computed per read, large, or runtime-only) where the type has them.</summary>

@@ -36,14 +36,21 @@ namespace com.IvanMurzak.Unity.MCP.Editor.Rql.Cinemachine
         public const string None = "None";
         private const string Prefix = "Cinemachine";
 
+        // Stage -> its component types; TypeCache is fixed per domain, so the attribute scan runs once per stage.
+        private static readonly Dictionary<Stage, Type[]> StageTypeCache = new Dictionary<Stage, Type[]>();
+
         /// <summary>The current (non-deprecated) component types of a pipeline stage, by short name (Follow, RotationComposer …).</summary>
-        public static List<Type> StageTypes(Stage stage) =>
-            TypeCache.GetTypesWithAttribute<CameraPipelineAttribute>()
-                .Where(t => !t.IsAbstract && typeof(CinemachineComponentBase).IsAssignableFrom(t)
-                            && !t.IsDefined(typeof(ObsoleteAttribute), false)
-                            && t.GetCustomAttribute<CameraPipelineAttribute>()!.Stage == stage)
-                .OrderBy(t => t.Name, StringComparer.Ordinal)
-                .ToList();
+        public static List<Type> StageTypes(Stage stage)
+        {
+            if (!StageTypeCache.TryGetValue(stage, out var types))
+                StageTypeCache[stage] = types = TypeCache.GetTypesWithAttribute<CameraPipelineAttribute>()
+                    .Where(t => !t.IsAbstract && typeof(CinemachineComponentBase).IsAssignableFrom(t)
+                                && !t.IsDefined(typeof(ObsoleteAttribute), false)
+                                && t.GetCustomAttribute<CameraPipelineAttribute>()!.Stage == stage)
+                    .OrderBy(t => t.Name, StringComparer.Ordinal)
+                    .ToArray();
+            return types.ToList();
+        }
 
         public static List<string> StageTypeNames(Stage stage) => StageTypes(stage).Select(ShortName).ToList();
 
