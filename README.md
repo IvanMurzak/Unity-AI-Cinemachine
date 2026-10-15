@@ -33,35 +33,25 @@ AI-powered tools for the Unity [Cinemachine](https://docs.unity3d.com/Packages/c
 | 2023.2.22f1   | [![r](https://github.com/IvanMurzak/Unity-AI-Cinemachine/workflows/release/badge.svg?job=test-unity-2023-2-22f1-editmode)](https://github.com/IvanMurzak/Unity-AI-Cinemachine/actions/workflows/release.yml)  | [![r](https://github.com/IvanMurzak/Unity-AI-Cinemachine/workflows/release/badge.svg?job=test-unity-2023-2-22f1-playmode)](https://github.com/IvanMurzak/Unity-AI-Cinemachine/actions/workflows/release.yml)  | [![r](https://github.com/IvanMurzak/Unity-AI-Cinemachine/workflows/release/badge.svg?job=test-unity-2023-2-22f1-standalone)](https://github.com/IvanMurzak/Unity-AI-Cinemachine/actions/workflows/release.yml)  |
 | 6000.3.1f1    | [![r](https://github.com/IvanMurzak/Unity-AI-Cinemachine/workflows/release/badge.svg?job=test-unity-6000-3-1f1-editmode)](https://github.com/IvanMurzak/Unity-AI-Cinemachine/actions/workflows/release.yml)   | [![r](https://github.com/IvanMurzak/Unity-AI-Cinemachine/workflows/release/badge.svg?job=test-unity-6000-3-1f1-playmode)](https://github.com/IvanMurzak/Unity-AI-Cinemachine/actions/workflows/release.yml)   | [![r](https://github.com/IvanMurzak/Unity-AI-Cinemachine/workflows/release/badge.svg?job=test-unity-6000-3-1f1-standalone)](https://github.com/IvanMurzak/Unity-AI-Cinemachine/actions/workflows/release.yml)   |
 
-## AI Cinemachine Tools
+## RQL (no extension tools)
 
-14 tools, grouped by purpose:
+On the RQL branch of Unity-MCP this package adds no MCP tools: it contributes an RQL module, so agents use
+`rql-query` / `rql-mutate` (the `unity-rql` skill carries the full guide with examples). `C` below stands for
+`cinemachine | get cameras | where name == "FollowCam"`.
 
-### Camera lifecycle
-
-- `cinemachine-camera-create` - Create a `CinemachineCamera` GameObject in the active scene
-- `cinemachine-camera-list` - List all Cinemachine cameras in the scene
-- `cinemachine-camera-get` - Get a Cinemachine camera's data (priority, lens, pipeline, targets)
-- `cinemachine-brain-ensure` - Ensure a `CinemachineBrain` exists on the main/target Unity `Camera`
-
-### Targets & framing
-
-- `cinemachine-set-targets` - Set the Follow and/or Look At targets on a camera
-- `cinemachine-set-priority` - Set a camera's priority (which camera the Brain activates)
-- `cinemachine-set-lens` - Set lens settings (FOV / focal length, near/far clip, dutch)
-
-### Pipeline components
-
-- `cinemachine-set-body` - Set the Body (position-control) component (e.g. `CinemachineFollow`)
-- `cinemachine-set-aim` - Set the Aim (rotation-control) component (e.g. `CinemachineRotationComposer`)
-- `cinemachine-set-noise` - Set the Noise (`CinemachineBasicMultiChannelPerlin`) component
-- `cinemachine-add-extension` - Add a Cinemachine extension (e.g. Deoccluder, Confiner)
-
-### Blends & generic
-
-- `cinemachine-set-default-blend` - Set the Brain's default blend (style + time)
-- `cinemachine-get` - Generic read: serialize any Cinemachine component on a GameObject
-- `cinemachine-modify` - Generic write: apply a `SerializedMember` diff to any Cinemachine component via ReflectorNet (escape hatch for fields not covered by the dedicated tools)
+| Former tool | RQL |
+| --- | --- |
+| `cinemachine-camera-create` | `cinemachine \| call CreateCamera("FollowCam", "Player", null, "(0, 3, -6)", "(20, 0, 0)", 10)` (also ensures a `CinemachineBrain`) |
+| `cinemachine-camera-list` / `-camera-get` | `cinemachine \| get cameras \| select name Priority.Value IsLive Follow.name Lens.FieldOfView body.$type aim.$type` |
+| `cinemachine-brain-ensure` | `cinemachine \| call EnsureBrain()` (or `EnsureBrain("Camera name")`) |
+| `cinemachine-set-targets` | `C \| call SetTargets("Player")` / `SetTargets("Player", "Boss")`, or `set Follow = ref("GameObject#…")` |
+| `cinemachine-set-priority` | `C \| set Priority.Value = 20` |
+| `cinemachine-set-lens` | `C \| set Lens.FieldOfView = 50, Lens.NearClipPlane = 0.3, Lens.Dutch = 5` |
+| `cinemachine-set-body` / `-set-aim` | `C \| call SetBody("Follow")`, `call SetAim("RotationComposer")` (`"None"` removes), then `set body.FollowOffset = "(0, 2, -8)"` |
+| `cinemachine-set-noise` | `C \| call SetNoise("Handheld_normal_mild", 1.5, 1)`, `set noise.AmplitudeGain = 0.5` |
+| `cinemachine-add-extension` | `objects \| where name == "FollowCam" \| call AddComponent("CinemachineDeoccluder")` |
+| `cinemachine-set-default-blend` | `cinemachine \| get brains \| set DefaultBlend.Style = "EaseInOut", DefaultBlend.Time = 1.5` |
+| `cinemachine-get` / `-modify` | plain `select` / `set` on any Cinemachine component (`objects \| get components \| where $ is CinemachineFollow \| …`) |
 
 ## Installation
 
